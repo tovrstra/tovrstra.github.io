@@ -4,10 +4,8 @@ menu = "main"
 weight = 1
 +++
 
-Welcome to my blog! I'll post anything here for which there is no dedicated outlet---as you might have guessed---on a pseudo-regular basis.
+Welcome to **Pseudo Regular**!
+This is my dedicated outlet for all the things that would otherwise not have a dedicated outlet.
+As the name suggests, you can expect posts on a pseudo-regular basis.
 
 For now, this blog is mostly an experiment of using [Hugo](https://gohugo.io/) as a static site generator.
-
----
-
-Toon Verstraelen

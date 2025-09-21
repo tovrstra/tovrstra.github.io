@@ -35,13 +35,7 @@ At the exam, we provided the same audio file in NPY format and broke the problem
 The audio was extracted from an enthusiastic recording of a Formula 1 race (Silverstone 2017) posted on YouTube.
 For those who cannot get enough of the Doppler effect, you can enjoy [the full recording here](https://www.youtube.com/watch?v=3w8_WzQzfTY).
 
-## Share your solution
-
-If you've solved the challenge and have posted your implementation online,
-e.g. Jupyter Notebook on GitHub, please reply to my bluesky post with a link to your solution.
-I'm happy to take a look and share it with others!
-
-## Final outcome
+## Check your results
 
 You should find approximately that:
 
@@ -49,3 +43,9 @@ You should find approximately that:
 - the closest distance between the car and the microphone is 15 m,
 - the time at which the car is closest to the microphone is 1.6 s, and
 - the car engine runs at a frequency of 337 Hz (20220 rpm).
+
+## Share your solution
+
+If you've solved the challenge and have posted your implementation online,
+e.g. Jupyter Notebook on GitHub, please reply to my bluesky post with a link to your solution.
+I'm happy to take a look and share it with others!

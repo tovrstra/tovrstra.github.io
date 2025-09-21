@@ -8,17 +8,19 @@
     --font-secondary: Alegreya Sans, sans-serif;
     --font-scale: 1.4em;
     --background-color: #fed;
+    --background-image: url("/tiling-light.svg");
     --heading-color: #321;
     --title-color: #543;
     --text-color: #222;
     --link-color: #654;
-    --visited-color: #987;
+    --visited-color: #876;
     --blockquote-color: #222;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
       --background-color: #181210;
+      --background-image: url("/tiling-dark.svg");
       --heading-color: #ed9;
       --title-color: #ba7;
       --text-color: #eee;
@@ -34,8 +36,27 @@
   }
 
   header h2 {
-    margin-top: 0;
+    margin-top: 10px;
     margin-bottom: 0;
     color: var(--title-color);
+  }
+
+  body {
+    background-image: var(--background-image);
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+
+    /* Use CSS grid to ensure footer is at the bottom of the viewport */
+    /* See https://matthewjamestaylor.com/bottom-footer */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+    padding: 0px;
+
+    /* fallback height */
+    min-height: 100vh;
+
+    /* new small viewport height for modern browsers */
+    min-height: 100svh;
   }
 </style>

@@ -22,3 +22,9 @@ repos:
     - id: fix-byte-order-marker
     - id: mixed-line-ending
     - id: trailing-whitespace
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.13.0
+  hooks:
+    - id: ruff-format
+    - id: ruff-check
+      args: ["--fix", "--show-fixes"]
