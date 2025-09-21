@@ -39,8 +39,8 @@ def recurse_triangle(origin, axis, sign, depth):
         recurse_triangle(origin3, -axis2, sign, depth - 1)
 
 
-recurse_triangle(np.array([0.0, 0.0]), np.array([2000.0, 0.0]), +1, 3)
-recurse_triangle(np.array([2000.0, 1000.0]), np.array([-2000.0, 0.0]), +1, 3)
+recurse_triangle(np.array([0.0, 0.0]), np.array([2000.0, 0.0]), +1, 4)
+recurse_triangle(np.array([2000.0, 1000.0]), np.array([-2000.0, 0.0]), +1, 4)
 
 width = 2000
 height = 1000
