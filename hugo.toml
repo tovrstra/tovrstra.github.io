@@ -1,0 +1,44 @@
+baseURL = 'https://tovrstra.github.io/'
+languageCode = 'en-us'
+title = 'Pseudo Regular'
+theme = 'hugo-bearblog'
+copyright = "Copyright 2025, Toon Verstraelen."
+
+# Generate a nice robots.txt for SEO
+enableRobotsTXT = true
+
+# Generate "Bearblog"-like URLs !only!, see https://bearblog.dev/.
+disableKinds = ["taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]
+[permalinks]
+  blog = "/:slug/"
+  tags = "/blog/:slug"
+
+[params]
+  # The "description" of your website. This is used in the meta data of your generated html.
+  description = "Tony's pseudo-regular blog"
+
+  # See https://ogp.me/ and https://gohugo.io/templates/internal#open-graph.
+  title = "Pseudo Regular"
+
+[markup]
+  # Configure markup highlighter to match "Bearblog" aesthetics, see
+  # https://gohugo.io/configuration/markup/#highlight
+  [markup.highlight]
+    style = 'friendly'
+    lineNos = true
+    lineNumbersInTable = false
+    codeFences = true
+  # Passthrough for LaTeX math.
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
+
+# Build cache to speed up deployments
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'

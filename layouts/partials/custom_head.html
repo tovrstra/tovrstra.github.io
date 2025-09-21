@@ -1,0 +1,41 @@
+{{ $noop := .WordCount }}
+{{ if .Page.Store.Get "hasMath" }}
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" rel="stylesheet">
+{{ end }}
+<style>
+   :root {
+    --font-main: Alegreya Sans, sans-serif;
+    --font-secondary: Alegreya Sans, sans-serif;
+    --font-scale: 1.4em;
+    --background-color: #fed;
+    --heading-color: #321;
+    --title-color: #543;
+    --text-color: #222;
+    --link-color: #654;
+    --visited-color: #987;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #181210;
+      --heading-color: #ed9;
+      --title-color: #ba7;
+      --text-color: #eee;
+      --link-color: #a96;
+      --visited-color: #875;
+      --blockquote-color: #ccc;
+    }
+
+  }
+
+  nav a {
+    margin-right: 2ex;
+  }
+
+  header h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--title-color);
+  }
+</style>
