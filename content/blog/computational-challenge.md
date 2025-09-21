@@ -49,5 +49,5 @@ You should find approximately that:
 ## Share your solution
 
 If you've solved the challenge and have posted your implementation on-line,
-e.g. Jupyter Notebook on GitHub, please reply to my bluesky post with a link to your solution.
+e.g. Jupyter Notebook on GitHub, please reply to my [bluesky post](https://bsky.app/profile/tovrstra.bsky.social/post/3lzelqdlgic2s) with a link to your solution.
 I'm happy to take a look!
