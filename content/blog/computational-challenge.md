@@ -5,7 +5,7 @@ description = "A computational challenge involving the Doppler effect in an audi
 tags = ["physics", "computational science", "Doppler effect", "audio processing"]
 +++
 
-Are you looking for a challenge for your BSc students in a computational science course?
+Are you looking for a challenge for your BSc or undergraduate students in a computational science course?
 This one is easy to explain, but slightly more involved to solve,
 and anyone solving it will learn something and have fun along the way.
 

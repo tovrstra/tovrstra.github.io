@@ -2,15 +2,18 @@
 {{ if .Page.Store.Get "hasMath" }}
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" rel="stylesheet">
 {{ end }}
+<link rel="shortcut icon" type="image/png" href="/favicon.png">
+<link rel="shortcut icon" sizes="192x192" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
 <style>
    :root {
     --font-main: Alegreya Sans, sans-serif;
     --font-secondary: Alegreya Sans, sans-serif;
-    --font-scale: 1.4em;
+    --font-scale: 1.2em;
     --background-color: #fed;
     --background-image: url("/tiling-light.svg");
-    --heading-color: #321;
-    --title-color: #543;
+    --heading-color: #502800;
+    --title-color: #504030;
     --text-color: #222;
     --link-color: #654;
     --visited-color: #876;
@@ -51,7 +54,8 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 100%;
-    padding: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 
     /* fallback height */
     min-height: 100vh;

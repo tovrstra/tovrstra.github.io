@@ -10,7 +10,6 @@ from itertools import chain
 import numpy as np
 import svg
 
-edges = set()
 triangles = []
 
 
@@ -21,9 +20,6 @@ def recurse_triangle(origin, axis, sign, depth):
         p1 = origin
         p2 = origin + axis
         p3 = origin + ortho
-        for p, q in [(p1, p2), (p2, p3), (p3, p1)]:
-            edge = tuple(p.round(6)), tuple(q.round(6))
-            edges.add(edge)
         triangle = list(chain.from_iterable(p.round(6).tolist() for p in [p1, p2, p3, p1]))
         triangles.append(triangle)
     else:
@@ -44,36 +40,30 @@ recurse_triangle(np.array([2000.0, 1000.0]), np.array([-2000.0, 0.0]), +1, 4)
 
 width = 2000
 height = 1000
-pxscale = 1
 vbox = svg.ViewBoxSpec(0, 0, width, height)
 
 
 def color(triangle, bgcolor, shift, sign):
-    y = (triangle[1] + triangle[3] + triangle[5]) / 3 + rng.uniform(0, 50)
-    c = 0.8 * np.exp(-y / 200)
+    y = (triangle[1] + triangle[3] + triangle[5]) / 3 + rng.uniform(0, 80)
+    c = np.exp(-y / 200)
     r = int(bgcolor[1:3], 16) + sign * round(int(shift[1:3], 16) * c)
     g = int(bgcolor[3:5], 16) + sign * round(int(shift[3:5], 16) * c)
     b = int(bgcolor[5:7], 16) + sign * round(int(shift[5:7], 16) * c)
     return f"#{r:02x}{g:02x}{b:02x}"
 
 
-for scheme, bgcolor, shift in ("light", "#f0e0d0", "#304050"), ("dark", "#181210", "#504030"):
+for scheme, bgcolor, shift in ("light", "#f0e0d0", "#406080"), ("dark", "#181210", "#705030"):
     rng = np.random.default_rng(0)
-    sign = -1 if scheme == "light" else +1
-
-    el_edges = [
-        svg.Line(x1=p[0], y1=p[1], x2=q[0], y2=q[1], stroke=bgcolor, stroke_width="1px")
-        for (p, q) in edges
-    ]
-    el_triangles = [
+    sign = -1 if scheme == "light" else 1
+    elements = [
         svg.Polygon(points=triangle, fill=color(triangle, bgcolor, shift, sign))
         for triangle in triangles
     ]
     canvas = svg.SVG(
-        width=width * pxscale,
-        height=height * pxscale,
+        width=width,
+        height=height,
         viewBox=vbox,
-        elements=el_triangles,
+        elements=elements,
     )
     with open(f"../static/tiling-{scheme}.svg", "w") as f:
         f.write(str(canvas))
