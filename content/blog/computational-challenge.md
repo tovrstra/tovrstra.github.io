@@ -7,25 +7,25 @@ tags = ["physics", "computational science", "Doppler effect", "audio processing"
 shortpath = "cc1"
 +++
 
-Are you looking for a challenge for your BSc or undergraduate students in a computational science course?
+Are you looking for a challenge for your BSc or undergraduate students in a computational science/physics course?
 This one is easy to explain, but slightly more involved to solve,
 and anyone solving it will learn something and have fun along the way.
 
 ## The challenge
 
-In the following audio recording of a Formula 1 car passing by,
-you can clearly recognize the [Doppler effect](https://en.wikipedia.org/wiki/Doppler_effect):
+You can clearly recognize the [Doppler effect](https://en.wikipedia.org/wiki/Doppler_effect)
+in the following audio recording of a Formula 1 car:
 
 🔊 [formula1.wav](/formula1.wav)
 
-Estimate the following by analyzing this recording:
+Estimate the following quantities by analyzing this recording:
 
 - The speed of the car.
 - The closest distance between the car and the microphone.
 - The time at which the car is closest to the microphone.
 - The frequency at which the car engine is running.
 
-You can assume that the car drives at a constant speed on a straight line, and that the microphone is stationary.
+You can assume that the car drives at a constant velocity on a straight line, and that the microphone is stationary.
 
 Good luck!
 
@@ -43,11 +43,11 @@ You should find approximately that:
 
 - the car is driving 68 m/s (245 km/h),
 - the closest distance between the car and the microphone is 15 m,
-- the time at which the car is closest to the microphone is 1.6 s, and
+- the time at which the car is closest to the microphone is at 1.6 s in the recording, and
 - the car engine runs at a frequency of 337 Hz (20220 rpm).
 
 ## Share your solution
 
-If you've solved the challenge and have posted your implementation online,
+If you've solved the challenge and have posted your implementation on-line,
 e.g. Jupyter Notebook on GitHub, please reply to my bluesky post with a link to your solution.
-I'm happy to take a look and share it with others!
+I'm happy to take a look!
