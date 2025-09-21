@@ -3,6 +3,8 @@ title = 'Can you solve this computational challenge?'
 date = "2025-09-21"
 description = "A computational challenge involving the Doppler effect in an audio recording of a passing Formula 1 car."
 tags = ["physics", "computational science", "Doppler effect", "audio processing"]
+[Params]
+shortpath = "cc1"
 +++
 
 Are you looking for a challenge for your BSc or undergraduate students in a computational science course?

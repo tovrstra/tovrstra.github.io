@@ -1,0 +1,14 @@
+{{/* Get page info */}}
+{{ $path := .Path }}
+{{ $hashOverride := .Params.shortpath }}
+
+{{/* Use the hashOverride if it exists, create a new hash */}}
+{{ $shortHash := "" }}
+{{ if $hashOverride }}
+  {{ $shortHash = $hashOverride }}
+{{ else }}
+  {{ $fullHash := hash.XxHash $path }}
+  {{ $shortHash = slicestr $fullHash 0 8 }}
+{{ end }}
+
+{{ return $shortHash }}

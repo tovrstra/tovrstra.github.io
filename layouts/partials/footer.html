@@ -1,3 +1,17 @@
+{{ if .IsHome }}
+  {{ $hashes := newScratch }}
+  {{ range .Site.Pages }}
+    {{ $hash := partial "calc-short-url.html" . }}
+
+    {{/* Check for collisions */}}
+    {{ if $hashes.Get $hash }}
+      {{ errorf "Collision detected for %s and %s" .Path ($hashes.Get $hash) }}
+    {{ else }}
+      {{ $hashes.Set $hash .Path }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
 {{ $shortURL := partial "make-short-url.html" . }}
 Short URL: <a href="{{ $shortURL }}">{{ $shortURL }}</a><br />
 

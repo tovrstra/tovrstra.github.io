@@ -10,8 +10,7 @@
 </html>
 ` .Language.LanguageCode .Permalink }}
 
-{{ $hash := .Path | md5 }}
-{{ $hash := slicestr $hash 0 12 }}
+{{ $hash := partial "calc-short-url.html" . }}
 {{ $publishPath := path.Join site.LanguagePrefix $hash "index.html" }}
 {{ (resources.FromString $publishPath $html).Publish }}
 {{ return ($hash | absLangURL) }}
