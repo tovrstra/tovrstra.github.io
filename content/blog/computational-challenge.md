@@ -14,7 +14,7 @@ and anyone solving it will learn something and have fun along the way.
 In the following audio recording of a Formula 1 car passing by,
 you can clearly recognize the [Doppler effect](https://en.wikipedia.org/wiki/Doppler_effect):
 
-[formula1.wav](/formula1.wav).
+🔊 [formula1.wav](/formula1.wav)
 
 Estimate the following by analyzing this recording:
 
