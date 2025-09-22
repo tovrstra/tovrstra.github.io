@@ -5,6 +5,7 @@ description = "A computational challenge involving the Doppler effect in an audi
 tags = ["physics", "computational science", "Doppler effect", "audio processing"]
 [Params]
 shortpath = "cc1"
+bsky = "https://bsky.app/profile/tovrstra.bsky.social/post/3lzelqdlgic2s"
 +++
 
 Are you looking for a challenge for your BSc or undergraduate students in a computational science/physics course?

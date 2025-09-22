@@ -1,0 +1,217 @@
+<style>
+  :root {
+    --width: 720px;
+    --font-main: Alegreya Sans, sans-serif;
+    --font-secondary: Alegreya Sans, sans-serif;
+    --font-scale: 1.2em;
+    --background-color: #fed;
+    --background-image: url("/tiling-light.svg");
+    --heading-color: #502800;
+    --title-color: #504030;
+    --text-color: #222;
+    --link-color: #852;
+    --visited-color: #555;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #181210;
+      --background-image: url("/tiling-dark.svg");
+      --heading-color: #ed9;
+      --title-color: #ba7;
+      --text-color: #eee;
+      --link-color: #a96;
+      --visited-color: #aaa;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.15;
+    color: var(--text-color);
+
+    background-image: var(--background-image);
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+
+    /* Use CSS grid to ensure footer is at the bottom of the viewport */
+    /* See https://matthewjamestaylor.com/bottom-footer */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    /* fallback height */
+    min-height: 100vh;
+
+    /* new small viewport height for modern browsers */
+    min-height: 100svh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+    margin-bottom: 0px;
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 2ex;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--blockquote-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  header h2 {
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: var(--title-color);
+  }
+
+  footer {
+    padding: 0px;
+  }
+
+  footer div#comments h2 {
+    color: var(--title-color);
+  }
+
+  footer div#attribution {
+    padding: 2em 0px;
+    text-align: center;
+    font-size: 0.9em;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+  /* blog post list */
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+  /* Bsky posts */
+  .comment {
+      padding: 10px 0;
+  }
+  .author {
+      font-weight: bold;
+  }
+  .avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 8px;
+  }
+  .nested-replies {
+      margin-left: 20px;
+      padding-left: 10px;
+  }
+  .actions {
+      font-size: 12px;
+      color: #666;
+  }
+  .nested-replies .comment {
+      margin-bottom: 0;
+  }
+
+</style>

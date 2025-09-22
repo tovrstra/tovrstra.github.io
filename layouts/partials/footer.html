@@ -1,23 +1,15 @@
-{{ if .IsHome }}
-  {{ $hashes := newScratch }}
-  {{ range .Site.Pages }}
-    {{ $hash := partial "calc-short-url.html" . }}
-
-    {{/* Check for collisions */}}
-    {{ if $hashes.Get $hash }}
-      {{ errorf "Collision detected for %s and %s" .Path ($hashes.Get $hash) }}
-    {{ else }}
-      {{ $hashes.Set $hash .Path }}
-    {{ end }}
-  {{ end }}
+{{ if .Params.bsky }}
+  <div id="comments" data-bsky-uri="{{ .Params.bsky }}"></div>
+  {{ $comments := resources.Get "js/comments.js" }}
+  <script src="{{ $comments.RelPermalink }}"></script>
 {{ end }}
 
+<div id="attribution">
 {{ $shortURL := partial "make-short-url.html" . }}
-Short URL: <a href="{{ $shortURL }}">{{ $shortURL }}</a><br />
 
-{{ if not (.Param "hideMadeWithLine") }}
+Short URL: <a href="{{ $shortURL }}">{{ $shortURL }}</a><br />
 <a href="https://tovrstra.github.io">Pseudo Regular</a> © 2025 by Toon Verstraelen is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><br />
 
-Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+Made with <a href="https://gohugo.io/">Hugo</a>
 | Source on <a href="https://github.com/tovrstra/tovrstra.github.io">GitHub</a>
-{{ end }}
+</div>

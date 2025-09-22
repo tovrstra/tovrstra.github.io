@@ -1,7 +1,6 @@
 baseURL = 'https://tovrstra.github.io/'
 languageCode = 'en-us'
 title = 'Pseudo Regular'
-theme = 'hugo-bearblog'
 copyright = "Copyright 2025, Toon Verstraelen."
 
 # Generate a nice robots.txt for SEO

@@ -1,0 +1,60 @@
+{{ if .IsHome }}
+  {{ $hashes := newScratch }}
+  {{ range .Site.Pages }}
+    {{ $hash := partial "calc-short-url.html" . }}
+
+    {{/* Check for collisions */}}
+    {{ if $hashes.Get $hash }}
+      {{ errorf "Collision detected for %s and %s" .Path ($hashes.Get $hash) }}
+    {{ else }}
+      {{ $hashes.Set $hash .Path }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{- block "title" . }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{- end }}</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" sizes="192x192" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+
+  <!-- SEO -->
+  {{- partial "seo_tags.html" . -}}
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <!-- RSS feed -->
+  {{ with .OutputFormats.Get "rss" -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+
+  {{- partial "style.html" . -}}
+
+  <!-- KaTeX -->
+  {{ $noop := .WordCount }}
+  {{ if .Page.Store.Get "hasMath" }}
+  <link href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" rel="stylesheet">
+  {{ end }}
+</head>
+
+<body>
+  <header>
+    {{- partial "header.html" . -}}
+  </header>
+  <main>
+    {{- block "main" . }}{{- end }}
+  </main>
+  <footer>
+    {{- partial "footer.html" . -}}
+  </footer>
+</body>
+
+</html>
