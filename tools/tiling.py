@@ -44,7 +44,7 @@ vbox = svg.ViewBoxSpec(0, 0, width, height)
 
 
 def color(triangle, bgcolor, shift, sign):
-    y = (triangle[1] + triangle[3] + triangle[5]) / 3 + rng.uniform(0, 80)
+    y = (triangle[1] + triangle[3] + triangle[5]) / 3 + rng.uniform(0, 100)
     c = np.exp(-y / 200)
     r = int(bgcolor[1:3], 16) + sign * round(int(shift[1:3], 16) * c)
     g = int(bgcolor[3:5], 16) + sign * round(int(shift[3:5], 16) * c)
@@ -52,7 +52,7 @@ def color(triangle, bgcolor, shift, sign):
     return f"#{r:02x}{g:02x}{b:02x}"
 
 
-for scheme, bgcolor, shift in ("light", "#f0e0d0", "#406080"), ("dark", "#181210", "#705030"):
+for scheme, bgcolor, shift in ("light", "#ffeedd", "#446688"), ("dark", "#181210", "#705030"):
     rng = np.random.default_rng(0)
     sign = -1 if scheme == "light" else 1
     elements = [
