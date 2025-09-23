@@ -120,20 +120,19 @@ function renderComments(thread, container) {
   metaLink.href = postUrl;
   metaLink.target = "_blank";
   metaLink.textContent = "";
-  if (thread.post.replyCount > 0) {
-    metaLink.textContent += `${thread.post.replyCount} replies`;
-  }
-  if (thread.post.likeCount > 0) {
-    if (metaLink.textContent.length > 0) {
-      metaLink.textContent += ", ";
+  const counters = [
+    ["replyCount", "replies"],
+    ["likeCount", "likes"],
+    ["repostCount", "reposts"],
+    ["quoteCount", "quotes"],
+    ["bookmarkCount", "saves"],
+  ];
+  for (const [key, label] of counters) {
+    const count = thread.post?.[key] ?? 0;
+    if (count > 0) {
+      if (metaLink.textContent.length > 0) metaLink.textContent += ", ";
+      metaLink.textContent += `${count} ${label}`;
     }
-    metaLink.textContent += `${thread.post.likeCount} likes`;
-  }
-  if (thread.post.repostCount > 0) {
-    if (metaLink.textContent.length > 0) {
-      metaLink.textContent += ", ";
-    }
-    metaLink.textContent += `${thread.post.repostCount} reposts`;
   }
   replyText.appendChild(metaLink);
 
