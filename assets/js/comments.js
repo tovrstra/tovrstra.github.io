@@ -121,17 +121,21 @@ function renderComments(thread, container) {
   metaLink.target = "_blank";
   metaLink.textContent = "";
   const counters = [
-    ["replyCount", "replies"],
-    ["likeCount", "likes"],
-    ["repostCount", "reposts"],
-    ["quoteCount", "quotes"],
-    ["bookmarkCount", "saves"],
+    ["replyCount", "reply", "replies"],
+    ["likeCount", "like", "likes"],
+    ["repostCount", "repost", "reposts"],
+    ["quoteCount", "quote", "quotes"],
+    ["bookmarkCount", "save", "saves"],
   ];
-  for (const [key, label] of counters) {
+  for (const [key, singular, plural] of counters) {
     const count = thread.post?.[key] ?? 0;
     if (count > 0) {
       if (metaLink.textContent.length > 0) metaLink.textContent += ", ";
-      metaLink.textContent += `${count} ${label}`;
+      if (count === 1) {
+        metaLink.textContent += `${count} ${singular}`;
+      } else {
+        metaLink.textContent += `${count} ${plural}`;
+      }
     }
   }
   replyText.appendChild(metaLink);
